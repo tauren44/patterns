@@ -1,8 +1,10 @@
 package com.mateacademy.factorymethod;
 
 import lombok.Setter;
+import lombok.Getter;
 
 @Setter
+@Getter
 public class JSDeveloper implements Developer {
 
     private float experience;
