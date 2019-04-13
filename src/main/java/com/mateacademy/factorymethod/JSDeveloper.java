@@ -15,15 +15,19 @@ public class JSDeveloper implements Developer {
     private JSDeveloper() {}
 
     public static JSDeveloper getInstance() {
-        if (instance == null) {
-            instance = new JSDeveloper();
-            instance.setEnglishLevel("fluent");
-            instance.setExperience(3);
-            instance.setLevel("middle");
+        JSDeveloper localInstance = instance;
+        if (localInstance == null) {
+            synchronized (JSDeveloper.class) {
+                localInstance = instance;
+                if (localInstance == null) {
+                    instance = localInstance = new JSDeveloper();
+                    instance.setEnglishLevel("fluent");
+                    instance.setExperience(3);
+                    instance.setLevel("middle");
+                }
+            }
+            return instance;
         }
-        return instance;
-    }
-
     @Override
     public Developer getDeveloper() {
          return getInstance();
