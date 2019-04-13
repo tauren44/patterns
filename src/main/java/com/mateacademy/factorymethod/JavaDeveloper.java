@@ -1,9 +1,13 @@
 package com.mateacademy.factorymethod;
+import lombok.Getter;
 
+@Getter
 public class JavaDeveloper implements Developer {
     private float experience;
     private String level;
     private String englishLevel;
+    
+    private JavaDeveloper(){}
 
     private static class Builder {
         private JavaDeveloper javaDeveloper;
